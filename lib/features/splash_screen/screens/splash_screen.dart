@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/bg_color.dart';
+import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
 import '../widgets/splash_screen_logo.dart';
 

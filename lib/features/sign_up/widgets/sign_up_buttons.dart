@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/colors/signin_color.dart';
 
+import '../../../common/colors/signin_color.dart';
 import '../../../common/widgets/or_spacer.dart';
 
-class SignInButtons extends StatelessWidget {
-  const SignInButtons({super.key});
+class SignUpButtons extends StatefulWidget {
+  const SignUpButtons({super.key});
 
+  @override
+  State<SignUpButtons> createState() => _SignUpButtonsState();
+}
+
+class _SignUpButtonsState extends State<SignUpButtons> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 40, 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                "Forgot Password?",
-                style: TextStyle(
-                    fontSize: 14,
-                    wordSpacing: 2,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline),
-              ),
-            ],
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.all(10),
           child: SizedBox(
@@ -38,8 +27,9 @@ class SignInButtons extends StatelessWidget {
                         MaterialStatePropertyAll(buttonColorBlack())),
                 onPressed: () {},
                 child: const Text(
-                  "Log In",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  "Sign up",
+                  style: TextStyle(
+                      letterSpacing: 0.2, fontSize: 14, color: Colors.white),
                 )),
           ),
         ),
@@ -55,24 +45,12 @@ class SignInButtons extends StatelessWidget {
                         MaterialStatePropertyAll(buttonColorTransparent())),
                 onPressed: () {},
                 child: const Text(
-                  "Create an Account",
+                  "Already have an Account",
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 )),
           ),
         ),
       ],
-    );
-  }
-
-  Flexible signInSpacer() {
-    return const Flexible(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Divider(
-          thickness: 0.4,
-          color: Colors.white,
-        ),
-      ),
     );
   }
 }

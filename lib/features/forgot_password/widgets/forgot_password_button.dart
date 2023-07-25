@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/signin_color.dart';
+import 'package:pawtai_mockup/common/colors/signin_color.dart';
 
 class ForgotPasswordButtons extends StatelessWidget {
   const ForgotPasswordButtons({super.key});

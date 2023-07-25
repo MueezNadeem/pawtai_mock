@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/bg_color.dart';
+import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/forgot_password/widgets/forgot_password_button.dart';
-import 'package:pawtai_mockup/features/forgot_password/widgets/forgot_password_navigationbutton.dart';
+import 'package:pawtai_mockup/common/widgets/back_navigation_button.dart';
 import 'package:pawtai_mockup/features/forgot_password/widgets/forgot_password_text.dart';
 
 import '../widgets/forgot_password_input.dart';
@@ -19,18 +19,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return Scaffold(
       backgroundColor: bgColor(),
       appBar: AppBar(
-        leading: const ForgotPasswordNavigationButton(),
+        leading: const BackNavigationButton(),
         backgroundColor: bgColor(),
         elevation: 0,
       ),
       body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ForgotPasswordText(),
-            ForgotPasswordInput(),
-            ForgotPasswordButtons()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ForgotPasswordText(),
+              ForgotPasswordInput(),
+              ForgotPasswordButtons()
+            ],
+          ),
         ),
       ),
     );

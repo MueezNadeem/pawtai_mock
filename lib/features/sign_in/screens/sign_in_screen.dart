@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/bg_color.dart';
+import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/sign_in/widgets/sign_in_buttons.dart';
 import 'package:pawtai_mockup/features/sign_in/widgets/sign_in_inputs.dart';
 import 'package:pawtai_mockup/features/sign_in/widgets/sign_in_logo.dart';
