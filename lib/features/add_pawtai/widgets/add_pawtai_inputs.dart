@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pawtai_mockup/features/add_pawtai/widgets/add_pawtai_upload_photo.dart';
 
 import '../../../common/colors/bg_color.dart';
 
@@ -25,7 +26,14 @@ class _AddPawtaiInputState extends State<AddPawtaiInput> {
             child: Column(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const AddPawtaiUploadPhoto();
+                      },
+                    );
+                  },
                   icon: SvgPicture.asset('assets/images/Mask Group 13.svg'),
                   iconSize: 60,
                 ),
