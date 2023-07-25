@@ -5,5 +5,5 @@ Color buttonColorBlack() {
 }
 
 Color buttonColorTransparent() {
-  return const Color.fromARGB(80, 255, 255, 250);
+  return const Color.fromARGB(100, 255, 255, 250);
 }
