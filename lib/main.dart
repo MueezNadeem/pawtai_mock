@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'features/sign_up/screens/sign_up_screen.dart';
+import 'package:pawtai_mockup/features/add_pawtai/screens/add_pawtai_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,6 +11,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: SignUpScreen());
+        debugShowCheckedModeBanner: false, home: AddPawtaiScreen());
   }
 }
