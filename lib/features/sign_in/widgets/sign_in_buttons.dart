@@ -33,7 +33,7 @@ class SignInButtons extends StatelessWidget {
                 style: ButtonStyle(
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
-                        MaterialStatePropertyAll(signinColorLogin())),
+                        MaterialStatePropertyAll(buttonColorBlack())),
                 onPressed: () {},
                 child: const Text(
                   "Log In",
@@ -62,7 +62,7 @@ class SignInButtons extends StatelessWidget {
             child: FilledButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStatePropertyAll(signinColorCreateAcc())),
+                        MaterialStatePropertyAll(buttonColorTransparent())),
                 onPressed: () {},
                 child: const Text(
                   "Create an Account",
