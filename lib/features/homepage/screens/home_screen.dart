@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         BottomNavigationBarItem(
           label: "",
           icon: SvgPicture.asset(
-            color: homeColor,
+            colorFilter: ColorFilter.mode(homeColor, BlendMode.srcIn),
             'assets/images/Path 2.svg',
             width: 25,
             height: 25,
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset(
-              color: pawColor,
+              colorFilter: ColorFilter.mode(pawColor, BlendMode.srcIn),
               'assets/images/Mask Group 253.svg',
               width: 25,
               height: 25,
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
         BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset(
-              color: calendarColor,
+              colorFilter: ColorFilter.mode(calendarColor, BlendMode.srcIn),
               'assets/images/Mask Group 254.svg',
               width: 25,
               height: 25,
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset(
-              color: bellColor,
+              colorFilter: ColorFilter.mode(bellColor, BlendMode.srcIn),
               'assets/images/Mask Group 255.svg',
               width: 25,
               height: 25,

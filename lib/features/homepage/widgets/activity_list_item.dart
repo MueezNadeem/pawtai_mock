@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/features/homepage/widgets/activity_dialog_box.dart';
 
 class ActivityItem extends StatefulWidget {
   const ActivityItem({super.key});
@@ -15,6 +16,14 @@ class _ActivityItemState extends State<ActivityItem> {
     return Card(
       elevation: 0.5,
       child: ListTile(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return const ActivityDialogBox();
+            },
+          );
+        },
         leading: Container(
           decoration: const BoxDecoration(shape: BoxShape.circle),
           child: Image.asset(
