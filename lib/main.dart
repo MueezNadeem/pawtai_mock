@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/features/confirm_join_pawtai/screens/confirm_join_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/onboarding/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,7 +10,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: ConfirmJoinPawtaiScreen());
+    return MaterialApp(
+        debugShowCheckedModeBanner: false, home: OnboardingScreen());
   }
 }

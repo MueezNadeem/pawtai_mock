@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
-import '../../../common/colors/signin_color.dart';
+import '../../../common/colors/button_colors.dart';
 import '../../../common/widgets/or_spacer.dart';
 
 class AddPawtaiButtons extends StatelessWidget {

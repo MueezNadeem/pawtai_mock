@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/colors/signin_color.dart';
+import '../../../common/colors/button_colors.dart';
 import '../../../common/widgets/or_spacer.dart';
 
 class SignUpButtons extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/colors/signin_color.dart';
+import 'package:pawtai_mockup/common/colors/button_colors.dart';
 
 import '../../../common/widgets/or_spacer.dart';
 
