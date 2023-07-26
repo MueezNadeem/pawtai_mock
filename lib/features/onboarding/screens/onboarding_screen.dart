@@ -4,6 +4,7 @@ import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/onboarding/widgets/onboarding_button.dart';
 import 'package:pawtai_mockup/features/onboarding/widgets/onboarding_carousel.dart';
 
+// ignore: must_be_immutable
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({super.key});
   int index = 0;
@@ -13,7 +14,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   CarouselController controller = CarouselController();
-  int index = 0;
+  late int index;
 
   @override
   void initState() {

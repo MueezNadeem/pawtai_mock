@@ -6,8 +6,8 @@ import 'package:pawtai_mockup/features/onboarding/widgets/onboarding_carousel_2.
 import 'package:pawtai_mockup/features/onboarding/widgets/onboarding_carousel_3.dart';
 
 class OnboardingCarousel extends StatefulWidget {
-  OnboardingCarousel({required this.buttonCarouselController, super.key});
-  CarouselController buttonCarouselController;
+  const OnboardingCarousel({required this.buttonCarouselController, super.key});
+  final CarouselController buttonCarouselController;
 
   @override
   State<OnboardingCarousel> createState() => _OnboardingCarouselState();

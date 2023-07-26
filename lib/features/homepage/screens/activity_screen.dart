@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:pawtai_mockup/features/homepage/widgets/activity_list_photo_item.dart';
+import 'package:pawtai_mockup/features/homepage/widgets/activity_list_video_item.dart';
+import '../widgets/activity_list_item.dart';
+
+class ActivityScreen extends StatefulWidget {
+  const ActivityScreen({super.key});
+
+  @override
+  State<ActivityScreen> createState() => _ActivityScreenState();
+}
+
+class _ActivityScreenState extends State<ActivityScreen> {
+  //TODO: implement model of Pawtai
+  List<String> items = ['a', 'b', 'c'];
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            color: Colors.grey,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                "${DateFormat("MMMM").format(DateTime.now())} ${DateTime.now().day}",
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return const ActivityItemVideo();
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

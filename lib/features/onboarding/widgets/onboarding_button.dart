@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
 class OnboardingNextButton extends StatefulWidget {
-  OnboardingNextButton(
+  const OnboardingNextButton(
       {required this.index, required this.buttonCarouselController, super.key});
-  CarouselController buttonCarouselController;
-  int index;
+  final CarouselController buttonCarouselController;
+  final int index;
   @override
   State<OnboardingNextButton> createState() => _OnboardingNextButtonState();
 }
@@ -37,7 +37,7 @@ class _OnboardingNextButtonState extends State<OnboardingNextButton> {
               style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(bgColor())),
               onPressed: () {
-                if (index == 2) {
+                if (index == 1) {
                   setState(() {
                     buttontext = "Get Started";
                   });
