@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/homepage/widgets/activity_dialog_box.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_dialog_box.dart';
 
 class ActivityItem extends StatefulWidget {
   const ActivityItem({super.key});

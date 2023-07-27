@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/homepage/widgets/activity_dialog_reply.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_dialog_reply.dart';
 
 import 'activity_dialog_likes.dart';
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/homepage/screens/activity_screen.dart';
+import 'package:pawtai_mockup/features/homepage_activity/screens/activity_screen.dart';
+import 'package:pawtai_mockup/features/homepage_post/screens/post_screen.dart';
+import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,13 +14,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int index = 0;
+  late AppBar currentAppbar;
   late Color homeColor, bellColor, pawColor, calendarColor, logoColor;
-  String appBarTitle = "Activity";
   final List<Widget> _options = [
     const ActivityScreen(),
+    const PostScreen(),
   ];
   @override
   void initState() {
+    currentAppbar = activityAppbar();
     index = 0;
     super.initState();
     homeColor = bgColor();
@@ -29,12 +33,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: bgColor(),
-        title: Text(appBarTitle),
-      ),
+      appBar: currentAppbar,
       body: _options.elementAt(index),
       bottomNavigationBar: bottomNavBar(),
+    );
+  }
+
+  AppBar activityAppbar() {
+    return AppBar(
+      backgroundColor: bgColor(),
+      title: const Text("Activity"),
     );
   }
 
@@ -98,7 +106,7 @@ class _HomePageState extends State<HomePage> {
     switch (value) {
       case 0:
         setState(() {
-          appBarTitle = "Activity";
+          currentAppbar = activityAppbar();
           homeColor = bgColor();
           bellColor = pawColor = calendarColor = logoColor = Colors.grey;
         });
@@ -106,7 +114,7 @@ class _HomePageState extends State<HomePage> {
 
       case 1:
         setState(() {
-          appBarTitle = "Post";
+          currentAppbar = postAppbar();
           pawColor = bgColor();
           homeColor = bellColor = calendarColor = logoColor = Colors.grey;
         });
@@ -114,7 +122,6 @@ class _HomePageState extends State<HomePage> {
 
       case 2:
         setState(() {
-          appBarTitle = "Calendar";
           calendarColor = bgColor();
           bellColor = pawColor = homeColor = logoColor = Colors.grey;
         });
@@ -123,7 +130,6 @@ class _HomePageState extends State<HomePage> {
 
       case 3:
         setState(() {
-          appBarTitle = "Notifications";
           bellColor = bgColor();
           homeColor = pawColor = calendarColor = logoColor = Colors.grey;
         });
@@ -132,7 +138,6 @@ class _HomePageState extends State<HomePage> {
 
       case 4:
         setState(() {
-          appBarTitle = "My Pawtai";
           logoColor = bgColor();
           bellColor = pawColor = calendarColor = homeColor = Colors.grey;
         });

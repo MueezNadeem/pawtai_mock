@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pawtai_mockup/features/homepage/widgets/activity_list_group_item.dart';
-import 'package:pawtai_mockup/features/homepage/widgets/activity_list_photo_item.dart';
-import 'package:pawtai_mockup/features/homepage/widgets/activity_list_video_item.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_group_item.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_photo_item.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_video_item.dart';
 import '../widgets/activity_list_item.dart';
 
 class ActivityScreen extends StatefulWidget {
