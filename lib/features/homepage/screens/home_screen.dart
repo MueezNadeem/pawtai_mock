@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_activity/screens/activity_screen.dart';
+import 'package:pawtai_mockup/features/homepage_calendar/widgets/calendar_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/screens/post_screen.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
+
+import '../../homepage_calendar/screens/calendar_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _options = [
     const ActivityScreen(),
     const PostScreen(),
+    const CalendarScreen(),
   ];
   @override
   void initState() {
@@ -122,6 +126,7 @@ class _HomePageState extends State<HomePage> {
 
       case 2:
         setState(() {
+          currentAppbar = calendarAppbar();
           calendarColor = bgColor();
           bellColor = pawColor = homeColor = logoColor = Colors.grey;
         });

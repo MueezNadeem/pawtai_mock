@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/features/homepage/screens/home_screen.dart';
+
+import 'features/add_event/screens/add_event_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,6 +12,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
+        debugShowCheckedModeBanner: false, home: AddEventScreen());
   }
 }

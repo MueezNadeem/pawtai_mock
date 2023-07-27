@@ -13,6 +13,8 @@ dependencies:
   flutter_svg: ^2.0.7
   google_fonts: ^5.1.0
   intl: ^0.18.1
+  syncfusion_flutter_calendar: ^22.1.39
+  table_calendar: ^3.0.9
   video_player: ^2.7.0
 
 dev_dependencies:
