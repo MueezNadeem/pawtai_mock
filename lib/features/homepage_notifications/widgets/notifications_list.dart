@@ -31,7 +31,7 @@ class _NotificationsListState extends State<NotificationsList> {
                       ),
                       context: context,
                       builder: (context) {
-                        return NotificationsDialog();
+                        return const NotificationsDialog();
                       },
                     );
                   },

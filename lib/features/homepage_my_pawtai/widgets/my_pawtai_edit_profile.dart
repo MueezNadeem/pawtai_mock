@@ -107,7 +107,7 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
             child: FilledButton(
                 style: ButtonStyle(
                     shadowColor: MaterialStatePropertyAll(bgColor()),
-                    elevation: MaterialStatePropertyAll(6),
+                    elevation: const MaterialStatePropertyAll(6),
                     backgroundColor: MaterialStatePropertyAll(bgColor())),
                 onPressed: () {},
                 child: const Text(
@@ -115,7 +115,7 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           )
         ]),

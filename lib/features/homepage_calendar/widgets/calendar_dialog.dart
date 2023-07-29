@@ -5,6 +5,7 @@ import 'package:pawtai_mockup/common/helpers/calendar_datasource.dart';
 import 'package:pawtai_mockup/common/helpers/calendar_events.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
+// ignore: must_be_immutable
 class CalendarDialog extends StatefulWidget {
   CalendarDialog({required this.calendarTapDetails, super.key});
   CalendarLongPressDetails calendarTapDetails;

@@ -15,7 +15,6 @@ class ActivityScreen extends StatefulWidget {
 }
 
 class _ActivityScreenState extends State<ActivityScreen> {
-  //TODO: implement model of Pawtai
   List<String> items = ['a', 'b', 'c'];
   @override
   Widget build(BuildContext context) {
