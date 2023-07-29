@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_activity/screens/activity_screen.dart';
+import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_calendar/widgets/calendar_appbar.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/screens/my_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/screens/post_screen.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
 
 import '../../homepage_calendar/screens/calendar_screen.dart';
+import '../../homepage_notifications/screens/notifications_screen.dart';
+import '../../homepage_notifications/widgets/notifications_appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,6 +28,8 @@ class _HomePageState extends State<HomePage> {
     const ActivityScreen(),
     const PostScreen(),
     const CalendarScreen(),
+    const NotificationsScreen(),
+    const MyPawtaiScreen(),
   ];
   @override
   void initState() {
@@ -40,13 +47,6 @@ class _HomePageState extends State<HomePage> {
       appBar: currentAppbar,
       body: _options.elementAt(index),
       bottomNavigationBar: bottomNavBar(),
-    );
-  }
-
-  AppBar activityAppbar() {
-    return AppBar(
-      backgroundColor: bgColor(),
-      title: const Text("Activity"),
     );
   }
 
@@ -135,6 +135,7 @@ class _HomePageState extends State<HomePage> {
 
       case 3:
         setState(() {
+          currentAppbar = notificationsAppbar();
           bellColor = bgColor();
           homeColor = pawColor = calendarColor = logoColor = Colors.grey;
         });
@@ -143,6 +144,7 @@ class _HomePageState extends State<HomePage> {
 
       case 4:
         setState(() {
+          currentAppbar = myPawtaiAppbar();
           logoColor = bgColor();
           bellColor = pawColor = calendarColor = homeColor = Colors.grey;
         });

@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/common/helpers/calendar_datasource.dart';
 import 'package:pawtai_mockup/common/helpers/calendar_events.dart';
-import 'package:syncfusion_flutter_calendar/src/calendar/common/event_args.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class CalendarDialog extends StatefulWidget {
   CalendarDialog({required this.calendarTapDetails, super.key});

@@ -36,6 +36,9 @@ class _AddEventInputState extends State<AddEventInput> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                     decoration: InputDecoration(
+                        hintText: "Enter title",
+                        hintStyle:
+                            const TextStyle(fontSize: 14, letterSpacing: 0.2),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(24)))),
               ),
@@ -57,7 +60,11 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
+                              hintText: "DD:MM:YY",
+                              hintStyle: const TextStyle(
+                                  fontSize: 14, letterSpacing: 0.2),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(24)))),
                     ),
@@ -78,7 +85,11 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
+                              hintText: "HH:MM",
+                              hintStyle: const TextStyle(
+                                  fontSize: 14, letterSpacing: 0.2),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(24)))),
                     ),
@@ -101,6 +112,9 @@ class _AddEventInputState extends State<AddEventInput> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                     decoration: InputDecoration(
+                        hintText: "Enter Pawtai",
+                        hintStyle:
+                            const TextStyle(fontSize: 14, letterSpacing: 0.2),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(24)))),
               ),
@@ -187,7 +201,13 @@ class _AddEventInputState extends State<AddEventInput> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
+                    hintText: "Select Days of Week",
+                    hintStyle: const TextStyle(
+                        fontSize: 14,
+                        letterSpacing: 0.2,
+                        fontWeight: FontWeight.bold),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24)))),
           ),

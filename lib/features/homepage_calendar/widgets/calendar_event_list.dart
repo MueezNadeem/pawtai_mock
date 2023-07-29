@@ -40,6 +40,5 @@ class _CalendarEventsState extends State<CalendarEvents> {
         },
       ),
     );
-    ();
   }
 }
