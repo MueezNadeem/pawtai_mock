@@ -4,6 +4,7 @@ import '../../../common/colors/bg_color.dart';
 
 AppBar postAppbar() {
   return AppBar(
+    automaticallyImplyLeading: false,
     elevation: 0,
     backgroundColor: bgColor(),
     title: const Row(
@@ -11,7 +12,7 @@ AppBar postAppbar() {
       children: [
         Text(
           "Post",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         Text(
           "Publish",

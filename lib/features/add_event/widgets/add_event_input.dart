@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:weekday_selector/weekday_selector.dart';
 
 class AddEventInput extends StatefulWidget {
   const AddEventInput({super.key});
@@ -11,6 +12,7 @@ class AddEventInput extends StatefulWidget {
 class _AddEventInputState extends State<AddEventInput> {
   bool _recurring = true;
   String _option = "Weekly";
+  final values = List.filled(7, true);
   @override
   void initState() {
     _option = "Weekly";
@@ -60,6 +62,14 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                          onTap: () {
+                            showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2010),
+                                lastDate: DateTime(2030));
+                          },
+                          keyboardType: TextInputType.none,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                               hintText: "DD:MM:YY",
@@ -85,6 +95,12 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                          onTap: () {
+                            showTimePicker(
+                                context: context,
+                                initialTime: const TimeOfDay(hour: 0, minute: 0));
+                          },
+                          keyboardType: TextInputType.none,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                               hintText: "HH:MM",
@@ -199,18 +215,31 @@ class _AddEventInputState extends State<AddEventInput> {
             style: TextStyle(fontSize: 16, color: bgColor()),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                    hintText: "Select Days of Week",
-                    hintStyle: const TextStyle(
-                        fontSize: 14,
-                        letterSpacing: 0.2,
-                        fontWeight: FontWeight.bold),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24)))),
-          ),
+              padding: const EdgeInsets.all(8.0),
+              // child: TextField(
+              //     onTap: () {
+
+              //     },
+              //     keyboardType: TextInputType.none,
+              //     textAlign: TextAlign.center,
+              //     decoration: InputDecoration(
+              //         hintText: "Select Days of Week",
+              //         hintStyle: const TextStyle(
+              //             fontSize: 14,
+              //             letterSpacing: 0.2,
+              //             fontWeight: FontWeight.bold),
+              //         border: OutlineInputBorder(
+              //             borderRadius: BorderRadius.circular(24)))),
+              child: WeekdaySelector(
+                selectedFillColor: bgColor(),
+                onChanged: (int day) {
+                  setState(() {
+                    final index = day % 7;
+                    values[index] = !values[index];
+                  });
+                },
+                values: values,
+              )),
         ],
       ),
     );

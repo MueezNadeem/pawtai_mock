@@ -4,6 +4,8 @@ import 'package:pawtai_mockup/features/homepage_notifications/widgets/notificati
 
 AppBar notificationsAppbar(BuildContext context) {
   return AppBar(
+    elevation: 0,
+    automaticallyImplyLeading: false,
     backgroundColor: bgColor(),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

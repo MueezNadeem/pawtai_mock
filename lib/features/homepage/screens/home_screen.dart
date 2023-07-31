@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
 
       case 4:
         setState(() {
-          currentAppbar = myPawtaiAppbar(context);
+          currentAppbar = myPawtaiAppbar(context, false);
           logoColor = bgColor();
           bellColor = pawColor = calendarColor = homeColor = Colors.grey;
         });

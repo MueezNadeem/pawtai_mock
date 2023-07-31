@@ -27,15 +27,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       backgroundColor: bgColor(),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OnboardingCarousel(buttonCarouselController: controller),
-            OnboardingNextButton(
-              index: index,
-              buttonCarouselController: controller,
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OnboardingCarousel(buttonCarouselController: controller),
+              OnboardingNextButton(
+                index: index,
+                buttonCarouselController: controller,
+              )
+            ],
+          ),
         ),
       ),
     );

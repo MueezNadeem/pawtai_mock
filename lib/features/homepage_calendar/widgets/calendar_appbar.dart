@@ -3,6 +3,7 @@ import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
 AppBar calendarAppbar() {
   return AppBar(
+      automaticallyImplyLeading: false,
       elevation: 0,
       backgroundColor: bgColor(),
       title: const Text(

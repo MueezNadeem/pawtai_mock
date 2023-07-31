@@ -3,8 +3,9 @@ import 'package:pawtai_mockup/features/sign_in/screens/sign_in_screen.dart';
 
 import '../../../common/colors/bg_color.dart';
 
-AppBar myPawtaiAppbar(BuildContext context) {
+AppBar myPawtaiAppbar(BuildContext context, bool arrow) {
   return AppBar(
+    automaticallyImplyLeading: arrow,
     elevation: 0,
     backgroundColor: bgColor(),
     title: Row(

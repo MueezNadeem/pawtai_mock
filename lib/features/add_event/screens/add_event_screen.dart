@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/common/widgets/back_navigation_button.dart';
 import 'package:pawtai_mockup/features/add_event/widgets/add_event_button.dart';
 import 'package:pawtai_mockup/features/add_event/widgets/add_event_input.dart';
 
@@ -17,7 +18,7 @@ class _AddEventScreenState extends State<AddEventScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: bgColor(),
-        leading: const Icon(Icons.arrow_back_ios_sharp),
+        leading: const BackNavigationButton(),
         title: const Text(
           "Add Event",
           style: TextStyle(
