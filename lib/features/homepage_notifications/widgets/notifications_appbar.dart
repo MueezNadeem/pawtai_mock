@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/features/homepage_notifications/widgets/notifications_settings.dart';
 
-AppBar notificationsAppbar() {
+AppBar notificationsAppbar(BuildContext context) {
   return AppBar(
     backgroundColor: bgColor(),
     title: Row(
@@ -16,7 +17,13 @@ AppBar notificationsAppbar() {
             Icons.settings,
             size: 32,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return const NotificationSettings();
+              },
+            ));
+          },
         ),
       ],
     ),

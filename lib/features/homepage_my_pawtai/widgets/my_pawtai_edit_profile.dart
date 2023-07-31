@@ -12,6 +12,15 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: bgColor(),
+        title: const Text(
+          "Edit Profile",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
         child:
@@ -109,7 +118,9 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                     shadowColor: MaterialStatePropertyAll(bgColor()),
                     elevation: const MaterialStatePropertyAll(6),
                     backgroundColor: MaterialStatePropertyAll(bgColor())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: const Text(
                   "Save",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

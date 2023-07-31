@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/button_colors.dart';
+import 'package:pawtai_mockup/features/forgot_password/screens/forgot_password_screen.dart';
+import 'package:pawtai_mockup/features/homepage/screens/home_screen.dart';
+import 'package:pawtai_mockup/features/sign_up/screens/sign_up_screen.dart';
 
 import '../../../common/widgets/or_spacer.dart';
 
@@ -10,18 +13,27 @@ class SignInButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 40, 10),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 40, 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                "Forgot Password?",
-                style: TextStyle(
-                    fontSize: 14,
-                    wordSpacing: 2,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const ForgotPasswordScreen();
+                    },
+                  ));
+                },
+                child: const Text(
+                  "Forgot Password?",
+                  style: TextStyle(
+                      fontSize: 14,
+                      wordSpacing: 2,
+                      color: Colors.black,
+                      decoration: TextDecoration.underline),
+                ),
               ),
             ],
           ),
@@ -36,7 +48,13 @@ class SignInButtons extends StatelessWidget {
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const HomePage();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Log In",
                   style: TextStyle(fontSize: 16, color: Colors.white),
@@ -53,7 +71,13 @@ class SignInButtons extends StatelessWidget {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorTransparent())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const SignUpScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Create an Account",
                   style: TextStyle(fontSize: 16, color: Colors.white),

@@ -21,7 +21,9 @@ class _AddEventButtonState extends State<AddEventButton> {
                 backgroundColor: MaterialStatePropertyAll(bgColor()),
                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)))),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: const Text(
               "Save",
               style: TextStyle(color: Colors.white, fontSize: 20),

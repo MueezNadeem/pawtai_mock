@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/button_colors.dart';
+import 'package:pawtai_mockup/features/join_pawtai/screens/join_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/onboarding/screens/onboarding_screen.dart';
 
 class ConfirmJoinPawtaiButtons extends StatefulWidget {
   const ConfirmJoinPawtaiButtons({super.key});
@@ -24,7 +26,13 @@ class _ConfirmJoinPawtaiButtonsState extends State<ConfirmJoinPawtaiButtons> {
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return OnboardingScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Yes! Join it.",
                   style: TextStyle(fontSize: 16, color: Colors.white),
@@ -40,7 +48,13 @@ class _ConfirmJoinPawtaiButtonsState extends State<ConfirmJoinPawtaiButtons> {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorTransparent())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const JoinPawtaiScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "No! Don't Join.",
                   style: TextStyle(fontSize: 16, color: Colors.white),

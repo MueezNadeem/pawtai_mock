@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_edit_profile.dart';
-
+import 'package:pawtai_mockup/features/splash_screen/screens/splash_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,6 +11,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: MyPawtaiEditProfile());
+        debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }

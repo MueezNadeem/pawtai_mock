@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
+import '../../homepage/screens/home_screen.dart';
+
 class OnboardingNextButton extends StatefulWidget {
   const OnboardingNextButton(
       {required this.index, required this.buttonCarouselController, super.key});
@@ -37,6 +39,13 @@ class _OnboardingNextButtonState extends State<OnboardingNextButton> {
               style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(bgColor())),
               onPressed: () {
+                if (buttontext == "Get Started") {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const HomePage();
+                    },
+                  ));
+                }
                 if (index == 1) {
                   setState(() {
                     buttontext = "Get Started";

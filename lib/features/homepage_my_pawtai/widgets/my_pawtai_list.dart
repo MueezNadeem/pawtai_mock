@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_dialog.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_profile.dart';
 
 class MyPawtaiList extends StatelessWidget {
   const MyPawtaiList({
@@ -14,23 +15,41 @@ class MyPawtaiList extends StatelessWidget {
       child: GridView.count(
         crossAxisCount: 2,
         children: [
-          Column(
-            children: [
-              Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Fido"),
-              ),
-            ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const MyPawtaiProfile();
+                },
+              ));
+            },
+            child: Column(
+              children: [
+                Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fido"),
+                ),
+              ],
+            ),
           ),
-          Column(
-            children: [
-              Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Fido"),
-              ),
-            ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const MyPawtaiProfile();
+                },
+              ));
+            },
+            child: Column(
+              children: [
+                Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fido"),
+                ),
+              ],
+            ),
           ),
           GestureDetector(
             onTap: () {

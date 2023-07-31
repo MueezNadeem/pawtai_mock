@@ -9,7 +9,9 @@ class BackNavigationButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset('assets/images/Mask Group 11.svg')),
     );
   }

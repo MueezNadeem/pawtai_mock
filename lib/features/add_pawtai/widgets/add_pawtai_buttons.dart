@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/features/join_pawtai/screens/join_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/onboarding/screens/onboarding_screen.dart';
 
 import '../../../common/colors/button_colors.dart';
 import '../../../common/widgets/or_spacer.dart';
@@ -21,7 +23,13 @@ class AddPawtaiButtons extends StatelessWidget {
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return OnboardingScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Get Started",
                   style: TextStyle(
@@ -40,7 +48,13 @@ class AddPawtaiButtons extends StatelessWidget {
             child: FilledButton(
                 style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.white)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const JoinPawtaiScreen();
+                    },
+                  ));
+                },
                 child: Text(
                   "Join a Pawtai",
                   style: TextStyle(

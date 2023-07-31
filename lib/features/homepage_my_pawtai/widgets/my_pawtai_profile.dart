@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/homepage_notifications/widgets/notifications_appbar.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_appbar.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_edit_profile.dart';
 
 class MyPawtaiProfile extends StatefulWidget {
   const MyPawtaiProfile({super.key});
@@ -13,7 +15,7 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: notificationsAppbar(),
+      appBar: myPawtaiAppbar(context),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Column(
@@ -137,7 +139,13 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStatePropertyAll(bgColor())),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return const MyPawtaiEditProfile();
+                              },
+                            ));
+                          },
                           child: const Text(
                             "Edit Profile",
                             style: TextStyle(fontSize: 18),
@@ -153,7 +161,13 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
                         style: const ButtonStyle(
                             backgroundColor:
                                 MaterialStatePropertyAll(Colors.black87)),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await FlutterShare.share(
+                              title: 'Example share',
+                              text: 'Example share text',
+                              linkUrl: 'https://flutter.dev/',
+                              chooserTitle: 'Example Chooser Title');
+                        },
                         icon: const Icon(Icons.share),
                         label: const Text(
                           " Share this Pawtai",

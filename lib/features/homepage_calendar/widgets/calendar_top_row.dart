@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/features/add_event/screens/add_event_screen.dart';
 
 class CalendarTopRow extends StatelessWidget {
   const CalendarTopRow({super.key});
@@ -16,7 +17,13 @@ class CalendarTopRow extends StatelessWidget {
               Icons.add,
               size: 30,
             ),
-            onPressed: () {})
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const AddEventScreen();
+                },
+              ));
+            })
       ]),
     );
   }

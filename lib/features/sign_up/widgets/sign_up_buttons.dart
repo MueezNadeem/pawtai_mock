@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pawtai_mockup/features/add_pawtai/screens/add_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/sign_in/screens/sign_in_screen.dart';
 
 import '../../../common/colors/button_colors.dart';
 import '../../../common/widgets/or_spacer.dart';
@@ -25,7 +27,13 @@ class _SignUpButtonsState extends State<SignUpButtons> {
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const AddPawtaiScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Sign up",
                   style: TextStyle(
@@ -43,7 +51,13 @@ class _SignUpButtonsState extends State<SignUpButtons> {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorTransparent())),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const SignInScreen();
+                    },
+                  ));
+                },
                 child: const Text(
                   "Already have an Account",
                   style: TextStyle(fontSize: 16, color: Colors.white),
