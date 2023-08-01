@@ -40,7 +40,7 @@ class _OnboardingNextButtonState extends State<OnboardingNextButton> {
                   backgroundColor: MaterialStatePropertyAll(bgColor())),
               onPressed: () {
                 if (buttontext == "Get Started") {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
                       return const HomePage();
                     },

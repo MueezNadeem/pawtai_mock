@@ -14,7 +14,7 @@ class _ActivityItemState extends State<ActivityItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0.5,
+      elevation: 0.1,
       child: ListTile(
         onTap: () {
           showDialog(

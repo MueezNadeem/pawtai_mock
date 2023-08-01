@@ -98,7 +98,8 @@ class _AddEventInputState extends State<AddEventInput> {
                           onTap: () {
                             showTimePicker(
                                 context: context,
-                                initialTime: const TimeOfDay(hour: 0, minute: 0));
+                                initialTime:
+                                    const TimeOfDay(hour: 0, minute: 0));
                           },
                           keyboardType: TextInputType.none,
                           textAlign: TextAlign.center,
