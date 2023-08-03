@@ -11,7 +11,7 @@ class MyPawtaiList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 12, 8, 8),
+      padding: const EdgeInsets.fromLTRB(8, 20, 8, 8),
       child: GridView.count(
         crossAxisCount: 2,
         children: [
@@ -24,6 +24,7 @@ class MyPawtaiList extends StatelessWidget {
               ));
             },
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
                 const Padding(
@@ -42,6 +43,7 @@ class MyPawtaiList extends StatelessWidget {
               ));
             },
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/images/kabo-BHJs5TZ-Nt0-unsplash@3x.png"),
                 const Padding(
@@ -61,6 +63,7 @@ class MyPawtaiList extends StatelessWidget {
               );
             },
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   decoration: BoxDecoration(

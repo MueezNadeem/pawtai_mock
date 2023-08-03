@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "237979612852",
+    "project_id": "pawtai-mockup",
+    "storage_bucket": "pawtai-mockup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237979612852:android:30a3564d9d1672c6a609e1",
+        "android_client_info": {
+          "package_name": "com.example.pawtai_mockup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237979612852-urob96e789oisho6lrt2rj9bgpgsbvma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiwgU3qR0lutwRLJR_XCNBHItnuGK0G2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237979612852-urob96e789oisho6lrt2rj9bgpgsbvma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
