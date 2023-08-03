@@ -14,6 +14,18 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  late TextEditingController emailController;
+  late TextEditingController usernameController;
+  late TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    usernameController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +35,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: bgColor(),
         leading: const BackNavigationButton(),
       ),
-      body: const Center(
+      body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SignUpLogo(),
-              SignUpText(),
-              SignUpInputs(),
-              SignUpButtons()
+              const SignUpLogo(),
+              const SignUpText(),
+              SignUpInputs(
+                  emailController, usernameController, passwordController),
+              SignUpButtons(
+                  emailController, usernameController, passwordController)
             ],
           ),
         ),

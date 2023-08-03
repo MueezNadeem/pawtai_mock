@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../common/colors/bg_color.dart';
 
 class SignUpInputs extends StatefulWidget {
-  const SignUpInputs({super.key});
+  SignUpInputs(this.eController, this.uController, this.pController,
+      {super.key});
+
+  TextEditingController eController;
+  TextEditingController uController;
+  TextEditingController pController;
 
   @override
   State<SignUpInputs> createState() => _SignUpInputsState();
@@ -24,6 +29,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                     borderRadius: BorderRadius.circular(25)),
                 child: Center(
                   child: TextField(
+                    controller: widget.uController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       icon: Padding(
@@ -50,6 +56,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                     borderRadius: BorderRadius.circular(25)),
                 child: Center(
                   child: TextField(
+                    controller: widget.eController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       icon: Padding(
@@ -76,6 +83,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                     borderRadius: BorderRadius.circular(25)),
                 child: Center(
                   child: TextField(
+                    controller: widget.pController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       icon: Padding(

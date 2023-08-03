@@ -13,17 +13,27 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  late TextEditingController uName;
+  late TextEditingController password;
+
+  @override
+  void initState() {
+    super.initState();
+    uName = TextEditingController();
+    password = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor(),
-      body: const Center(
+      body: Center(
         child: SingleChildScrollView(
           child: Column(children: [
-            SignInLogo(),
-            SignInText(),
-            SignInInputs(),
-            SignInButtons()
+            const SignInLogo(),
+            const SignInText(),
+            SignInInputs(uName, password),
+            SignInButtons(uName, password)
           ]),
         ),
       ),

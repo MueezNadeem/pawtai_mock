@@ -14,6 +14,14 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  late TextEditingController email;
+
+  @override
+  void initState() {
+    super.initState();
+    email = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +31,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         backgroundColor: bgColor(),
         elevation: 0,
       ),
-      body: const Center(
+      body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ForgotPasswordText(),
-              ForgotPasswordInput(),
-              ForgotPasswordButtons()
+              ForgotPasswordInput(email),
+              ForgotPasswordButtons(email)
             ],
           ),
         ),

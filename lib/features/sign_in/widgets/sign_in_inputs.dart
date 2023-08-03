@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
 class SignInInputs extends StatefulWidget {
-  const SignInInputs({super.key});
-
+  SignInInputs(this.uNameController, this.passwordController, {super.key});
+  TextEditingController uNameController;
+  TextEditingController passwordController;
   @override
   State<SignInInputs> createState() => _SignInInputsState();
 }
@@ -25,6 +26,7 @@ class _SignInInputsState extends State<SignInInputs> {
                       borderRadius: BorderRadius.circular(25)),
                   child: Center(
                     child: TextField(
+                      controller: widget.uNameController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         icon: Padding(
@@ -51,6 +53,7 @@ class _SignInInputsState extends State<SignInInputs> {
                       borderRadius: BorderRadius.circular(25)),
                   child: Center(
                     child: TextField(
+                      controller: widget.passwordController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         icon: Padding(

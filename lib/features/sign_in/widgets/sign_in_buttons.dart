@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/button_colors.dart';
+import 'package:pawtai_mockup/common/firebase/sign_in.dart';
 import 'package:pawtai_mockup/features/forgot_password/screens/forgot_password_screen.dart';
 import 'package:pawtai_mockup/features/homepage/screens/home_screen.dart';
 import 'package:pawtai_mockup/features/sign_up/screens/sign_up_screen.dart';
 
 import '../../../common/widgets/or_spacer.dart';
 
-class SignInButtons extends StatelessWidget {
-  const SignInButtons({super.key});
+class SignInButtons extends StatefulWidget {
+  SignInButtons(this.uNameController, this.passwordController, {super.key});
+  TextEditingController uNameController;
+  TextEditingController passwordController;
+  @override
+  State<SignInButtons> createState() => _SignInButtonsState();
+}
 
+class _SignInButtonsState extends State<SignInButtons> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,11 +56,20 @@ class SignInButtons extends StatelessWidget {
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const HomePage();
-                    },
-                  ));
+                  SignInToAccount.SignIn(widget.uNameController.text,
+                          widget.passwordController.text)
+                      .then((value) {
+                    if (value == true) {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const HomePage();
+                        },
+                      ));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Wrong credentials")));
+                    }
+                  });
                 },
                 child: const Text(
                   "Log In",
