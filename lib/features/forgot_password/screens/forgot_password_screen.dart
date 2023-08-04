@@ -36,7 +36,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ForgotPasswordText(),
+              const ForgotPasswordText(),
               ForgotPasswordInput(email),
               ForgotPasswordButtons(email)
             ],
