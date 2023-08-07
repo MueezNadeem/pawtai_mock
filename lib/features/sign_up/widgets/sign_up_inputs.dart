@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../common/colors/bg_color.dart';
 
 class SignUpInputs extends StatefulWidget {
-  SignUpInputs(this.eController, this.uController, this.pController,
+  const SignUpInputs(this.eController, this.uController, this.pController,
       {super.key});
 
-  TextEditingController eController;
-  TextEditingController uController;
-  TextEditingController pController;
+  final TextEditingController eController;
+  final TextEditingController uController;
+  final TextEditingController pController;
 
   @override
   State<SignUpInputs> createState() => _SignUpInputsState();

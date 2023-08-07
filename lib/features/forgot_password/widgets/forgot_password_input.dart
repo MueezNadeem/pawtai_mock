@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../common/colors/bg_color.dart';
 
 class ForgotPasswordInput extends StatefulWidget {
-  ForgotPasswordInput(this.emailController, {super.key});
-  TextEditingController emailController;
+  const ForgotPasswordInput(this.emailController, {super.key});
+  final TextEditingController emailController;
   @override
   State<ForgotPasswordInput> createState() => _ForgotPasswordInputState();
 }

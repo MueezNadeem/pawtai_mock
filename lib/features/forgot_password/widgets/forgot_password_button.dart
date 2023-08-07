@@ -3,8 +3,8 @@ import 'package:pawtai_mockup/common/colors/button_colors.dart';
 import 'package:pawtai_mockup/common/firebase/forgot_password.dart';
 
 class ForgotPasswordButtons extends StatelessWidget {
-  ForgotPasswordButtons(this.emailController, {super.key});
-  TextEditingController emailController;
+  const ForgotPasswordButtons(this.emailController, {super.key});
+  final TextEditingController emailController;
   @override
   Widget build(BuildContext context) {
     return Padding(

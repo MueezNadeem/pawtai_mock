@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 
 class SignInInputs extends StatefulWidget {
-  SignInInputs(this.uNameController, this.passwordController, {super.key});
-  TextEditingController uNameController;
-  TextEditingController passwordController;
+  const SignInInputs(this.uNameController, this.passwordController,
+      {super.key});
+  final TextEditingController uNameController;
+  final TextEditingController passwordController;
   @override
   State<SignInInputs> createState() => _SignInInputsState();
 }

@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/firebase/create_account.dart';
 import 'package:pawtai_mockup/features/add_pawtai/screens/add_pawtai_screen.dart';
 import 'package:pawtai_mockup/features/sign_in/screens/sign_in_screen.dart';
+import 'package:pawtai_mockup/features/sign_up/controller/sign_up_controller.dart';
 
 import '../../../common/colors/button_colors.dart';
 import '../../../common/widgets/or_spacer.dart';
 
 class SignUpButtons extends StatefulWidget {
-  SignUpButtons(this.eController, this.uController, this.pController,
+  const SignUpButtons(this.eController, this.uController, this.pController,
       {super.key});
 
-  TextEditingController eController;
-  TextEditingController uController;
-  TextEditingController pController;
+  final TextEditingController eController;
+  final TextEditingController uController;
+  final TextEditingController pController;
 
   @override
   State<SignUpButtons> createState() => _SignUpButtonsState();
@@ -33,8 +34,10 @@ class _SignUpButtonsState extends State<SignUpButtons> {
                     elevation: const MaterialStatePropertyAll(10),
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
-                onPressed: () {
+                onPressed: () async {
                   CreateUserAccount.createAcc(
+                      widget.eController.text, widget.pController.text);
+                  SignUpController().callAddUser(widget.uController.text,
                       widget.eController.text, widget.pController.text);
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {

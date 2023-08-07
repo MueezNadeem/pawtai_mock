@@ -8,9 +8,10 @@ import 'package:pawtai_mockup/features/sign_up/screens/sign_up_screen.dart';
 import '../../../common/widgets/or_spacer.dart';
 
 class SignInButtons extends StatefulWidget {
-  SignInButtons(this.uNameController, this.passwordController, {super.key});
-  TextEditingController uNameController;
-  TextEditingController passwordController;
+  const SignInButtons(this.uNameController, this.passwordController,
+      {super.key});
+  final TextEditingController uNameController;
+  final TextEditingController passwordController;
   @override
   State<SignInButtons> createState() => _SignInButtonsState();
 }
@@ -56,7 +57,7 @@ class _SignInButtonsState extends State<SignInButtons> {
                     backgroundColor:
                         MaterialStatePropertyAll(buttonColorBlack())),
                 onPressed: () {
-                  SignInToAccount.SignIn(widget.uNameController.text,
+                  SignInToAccount.signIn(widget.uNameController.text,
                           widget.passwordController.text)
                       .then((value) {
                     if (value == true) {
