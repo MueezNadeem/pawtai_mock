@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/features/add_pawtai/controller/image_uploader.dart';
 
 class AddPawtaiUploadPhoto extends StatefulWidget {
-  const AddPawtaiUploadPhoto({super.key});
-
+  AddPawtaiUploadPhoto(this.imageFile, {super.key});
+  File imageFile;
   @override
   State<AddPawtaiUploadPhoto> createState() => _AddPawtaiUploadPhotoState();
 }
@@ -30,7 +33,12 @@ class _AddPawtaiUploadPhotoState extends State<AddPawtaiUploadPhoto> {
               )
             ],
           ),
-          onPressed: () {},
+          onPressed: () async {
+            final File img = await ImageHandler.getImageFromCamera();
+            setState(() {
+              widget.imageFile = img;
+            });
+          },
         ),
         const Divider(
           height: 0.2,
@@ -49,7 +57,12 @@ class _AddPawtaiUploadPhotoState extends State<AddPawtaiUploadPhoto> {
               )
             ],
           ),
-          onPressed: () {},
+          onPressed: () async {
+            final File img = await ImageHandler.getImageFromGallery();
+            setState(() {
+              widget.imageFile = img;
+            });
+          },
         ),
       ],
     );

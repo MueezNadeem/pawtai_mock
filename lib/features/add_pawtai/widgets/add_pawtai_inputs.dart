@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/features/add_pawtai/widgets/add_pawtai_upload_photo.dart';
@@ -5,8 +7,9 @@ import 'package:pawtai_mockup/features/add_pawtai/widgets/add_pawtai_upload_phot
 import '../../../common/colors/bg_color.dart';
 
 class AddPawtaiInput extends StatefulWidget {
-  const AddPawtaiInput({super.key});
-
+  const AddPawtaiInput(this.pawtaiNameController, this.imageFile, {super.key});
+  final TextEditingController pawtaiNameController;
+  final File imageFile;
   @override
   State<AddPawtaiInput> createState() => _AddPawtaiInputState();
 }
@@ -30,7 +33,7 @@ class _AddPawtaiInputState extends State<AddPawtaiInput> {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return const AddPawtaiUploadPhoto();
+                        return AddPawtaiUploadPhoto(widget.imageFile);
                       },
                     );
                   },
@@ -55,6 +58,7 @@ class _AddPawtaiInputState extends State<AddPawtaiInput> {
                     borderRadius: BorderRadius.circular(25)),
                 child: Center(
                   child: TextField(
+                    controller: widget.pawtaiNameController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       icon: Padding(
