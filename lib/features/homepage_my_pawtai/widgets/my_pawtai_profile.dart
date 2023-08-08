@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_edit_profile.dart';
 
 class MyPawtaiProfile extends StatefulWidget {
@@ -15,7 +14,6 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myPawtaiAppbar(context, true),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Column(

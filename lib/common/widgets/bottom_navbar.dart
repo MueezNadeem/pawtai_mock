@@ -2,56 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_activity/screens/activity_screen.dart';
+import 'package:pawtai_mockup/features/homepage_calendar/screens/calendar_screen.dart';
 import 'package:pawtai_mockup/features/homepage_my_pawtai/screens/my_pawtai_screen.dart';
+import 'package:pawtai_mockup/features/homepage_notifications/screens/notifications_screen.dart';
 import 'package:pawtai_mockup/features/homepage_post/screens/post_screen.dart';
 
-import '../../homepage_calendar/screens/calendar_screen.dart';
-import '../../homepage_notifications/screens/notifications_screen.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+class BottomNavbar extends StatefulWidget {
+  const BottomNavbar(this.idx, {super.key});
+  final int idx;
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<BottomNavbar> createState() => _BottomNavbarState();
 }
 
-class _HomePageState extends State<HomePage> {
-  late TextEditingController postController;
-
+class _BottomNavbarState extends State<BottomNavbar> {
   int index = 0;
-  late AppBar currentAppbar;
   late Color homeColor, bellColor, pawColor, calendarColor, logoColor;
-  final List<Widget> _options = [
-    const ActivityScreen(),
-    const PostScreen(),
-    const CalendarScreen(),
-    const NotificationsScreen(),
-    const MyPawtaiScreen(),
-  ];
+  late List<Widget> screens;
   @override
   void initState() {
-    postController = TextEditingController();
+    screens = [
+      const ActivityScreen(),
+      const PostScreen(),
+      const CalendarScreen(),
+      const NotificationsScreen(),
+      const MyPawtaiScreen()
+    ];
+    toggleColor(widget.idx);
+
     index = 0;
     super.initState();
-    homeColor = bgColor();
-    bellColor = pawColor = calendarColor = logoColor = Colors.grey;
-    index = 0;
+    // homeColor = bgColor();
+    // bellColor = pawColor = calendarColor = logoColor = Colors.grey;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _options.elementAt(index);
-  }
-
-  BottomNavigationBar bottomNavBar() {
     return BottomNavigationBar(
       elevation: 25,
-      currentIndex: index,
+      currentIndex: widget.idx,
       onTap: (value) {
         setState(() {
           index = value;
-          // toggleColor(value);
         });
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => screens[index],
+            ));
       },
       items: [
         BottomNavigationBarItem(

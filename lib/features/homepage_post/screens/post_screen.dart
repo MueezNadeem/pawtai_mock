@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pawtai_mockup/common/widgets/bottom_navbar.dart';
+import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_button.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_user_details.dart';
 
@@ -12,12 +14,26 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
+  late TextEditingController postController;
+
+  @override
+  void initState() {
+    super.initState();
+    postController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [PostUserDetails(), PostTextBox(), PostButton()]),
+    return Scaffold(
+      appBar: PostAppBar(postController),
+      bottomNavigationBar: const BottomNavbar(1),
+      body: SingleChildScrollView(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          const PostUserDetails(),
+          PostTextBox(postController),
+          const PostButton()
+        ]),
+      ),
     );
   }
 }

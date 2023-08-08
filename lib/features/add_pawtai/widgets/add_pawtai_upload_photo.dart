@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
-import 'package:pawtai_mockup/features/add_pawtai/controller/image_uploader.dart';
+import 'package:pawtai_mockup/common/helpers/image_uploader.dart';
 
 class AddPawtaiUploadPhoto extends StatefulWidget {
   AddPawtaiUploadPhoto(this.imageFile, {super.key});
