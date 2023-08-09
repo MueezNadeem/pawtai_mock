@@ -59,6 +59,5 @@ class _PostAppBarState extends State<PostAppBar> {
     );
   }
 
-  @override
   Size get preferredSize => const Size.fromHeight(50);
 }

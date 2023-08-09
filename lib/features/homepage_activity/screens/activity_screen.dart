@@ -1,12 +1,15 @@
 // ignore_for_file: unused_import
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pawtai_mockup/common/widgets/bottom_navbar.dart';
+import 'package:pawtai_mockup/features/homepage_activity/controller/activity_retriever.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_group_item.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_photo_item.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_video_item.dart';
+import '../../../models/activity.dart';
 import '../widgets/activity_list_item.dart';
 
 class ActivityScreen extends StatefulWidget {
@@ -17,6 +20,21 @@ class ActivityScreen extends StatefulWidget {
 }
 
 class _ActivityScreenState extends State<ActivityScreen> {
+  List<Activity> activities = [];
+  late User _user;
+  bool check = false;
+  @override
+  void initState() {
+    check = false;
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _user = user!;
+        check = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +55,31 @@ class _ActivityScreenState extends State<ActivityScreen> {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return const ActivityItem();
-              },
-            ),
-          ),
+          FutureBuilder(
+            future: ActivityRetriever().getActivities(_user.email!),
+            builder: (context, snapshot) {
+              if (snapshot.hasData && check == true) {
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, index) {
+                      return ActivityItem(snapshot.data![index]);
+                    },
+                  ),
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
+          )
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemCount: 3,
+          //     itemBuilder: (context, index) {
+          //       return const ActivityItem();
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

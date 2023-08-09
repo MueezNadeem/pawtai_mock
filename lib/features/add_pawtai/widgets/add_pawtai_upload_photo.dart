@@ -5,12 +5,13 @@ import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/common/helpers/image_uploader.dart';
 
 class AddPawtaiUploadPhoto extends StatefulWidget {
-  AddPawtaiUploadPhoto(this.imageFile, {super.key});
-  File imageFile;
+  const AddPawtaiUploadPhoto(this.imageFile, {super.key});
+  final File imageFile;
   @override
   State<AddPawtaiUploadPhoto> createState() => _AddPawtaiUploadPhotoState();
 }
 
+//TODO: Handle Profile picture handling
 class _AddPawtaiUploadPhotoState extends State<AddPawtaiUploadPhoto> {
   @override
   Widget build(BuildContext context) {
@@ -34,9 +35,9 @@ class _AddPawtaiUploadPhotoState extends State<AddPawtaiUploadPhoto> {
             ],
           ),
           onPressed: () async {
-            final File img = await ImageHandler.getImageFromCamera();
+            await ImageHandler.getImageFromCamera();
             setState(() {
-              widget.imageFile = img;
+              //  widget.imageFile = img;
             });
           },
         ),
@@ -58,9 +59,9 @@ class _AddPawtaiUploadPhotoState extends State<AddPawtaiUploadPhoto> {
             ],
           ),
           onPressed: () async {
-            final File img = await ImageHandler.getImageFromGallery();
+            await ImageHandler.getImageFromGallery();
             setState(() {
-              widget.imageFile = img;
+              //widget.imageFile = img;
             });
           },
         ),
