@@ -1,10 +1,10 @@
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
 class LikeHandler {
-  final url = 'http://192.168.100.51:5000/HandleLikes';
+  final url = 'http://192.168.100.100:5000/HandleLikes';
 
   void callHandleLike(Activity a) {
     handleLike(a).then((value) {});

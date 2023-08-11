@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/features/homepage_activity/controller/reply_handler.dart';
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 
 import '../controller/get_user_replies.dart';
 

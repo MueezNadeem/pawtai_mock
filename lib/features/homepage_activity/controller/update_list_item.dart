@@ -1,9 +1,9 @@
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ListItemUpdate {
-  final url = 'http://192.168.100.51:5000/GetNumLikes';
+  final url = 'http://192.168.100.100:5000/GetNumLikes';
 
   Future<Activity> updateWidget(Activity activity) async {
     getLikes(activity).then((value) {

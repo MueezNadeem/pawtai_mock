@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 
@@ -10,11 +11,28 @@ class AddEventInput extends StatefulWidget {
 }
 
 class _AddEventInputState extends State<AddEventInput> {
+  late DateTime? eventDate;
+  late TextEditingController dateController;
+
+  late TimeOfDay? eventTime;
+  late TextEditingController timeController;
+
+  late TextEditingController titleController;
+
+  late TextEditingController pawtaiController;
+
   bool _recurring = true;
   String _option = "Weekly";
   final values = List.filled(7, true);
   @override
   void initState() {
+    eventDate = DateTime.now();
+    eventTime = TimeOfDay.fromDateTime(eventDate!);
+    dateController = TextEditingController();
+    timeController = TextEditingController();
+    titleController = TextEditingController();
+    pawtaiController = TextEditingController();
+
     _option = "Weekly";
     _recurring = true;
     super.initState();
@@ -62,13 +80,20 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
-                          onTap: () {
-                            showDatePicker(
+                          readOnly: true,
+                          onTap: () async {
+                            DateTime? picked = await showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime(2010),
                                 lastDate: DateTime(2030));
+                            setState(() {
+                              eventDate = picked;
+                              dateController.text =
+                                  DateFormat.yMMMEd().format(eventDate!);
+                            });
                           },
+                          controller: dateController,
                           keyboardType: TextInputType.none,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
@@ -95,11 +120,17 @@ class _AddEventInputState extends State<AddEventInput> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
-                          onTap: () {
-                            showTimePicker(
+                          readOnly: true,
+                          controller: timeController,
+                          onTap: () async {
+                            TimeOfDay? time = await showTimePicker(
                                 context: context,
                                 initialTime:
                                     const TimeOfDay(hour: 0, minute: 0));
+                            setState(() {
+                              eventTime = time;
+                              timeController.text = eventTime!.format(context);
+                            });
                           },
                           keyboardType: TextInputType.none,
                           textAlign: TextAlign.center,
@@ -217,20 +248,6 @@ class _AddEventInputState extends State<AddEventInput> {
           ),
           Padding(
               padding: const EdgeInsets.all(8.0),
-              // child: TextField(
-              //     onTap: () {
-
-              //     },
-              //     keyboardType: TextInputType.none,
-              //     textAlign: TextAlign.center,
-              //     decoration: InputDecoration(
-              //         hintText: "Select Days of Week",
-              //         hintStyle: const TextStyle(
-              //             fontSize: 14,
-              //             letterSpacing: 0.2,
-              //             fontWeight: FontWeight.bold),
-              //         border: OutlineInputBorder(
-              //             borderRadius: BorderRadius.circular(24)))),
               child: WeekdaySelector(
                 selectedFillColor: bgColor(),
                 onChanged: (int day) {

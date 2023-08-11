@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_dialog_reply.dart';
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 
 import 'activity_dialog_likes.dart';
 

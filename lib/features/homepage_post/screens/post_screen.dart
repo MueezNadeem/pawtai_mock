@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/widgets/bottom_navbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
@@ -15,10 +16,16 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen> {
   late TextEditingController postController;
+  late User _user;
 
   @override
   void initState() {
     super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _user = user!;
+      });
+    });
     postController = TextEditingController();
   }
 
@@ -29,7 +36,7 @@ class _PostScreenState extends State<PostScreen> {
       bottomNavigationBar: const BottomNavbar(1),
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          const PostUserDetails(),
+          PostUserDetails(_user),
           PostTextBox(postController),
           const PostButton()
         ]),

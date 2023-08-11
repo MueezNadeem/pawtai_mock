@@ -4,7 +4,7 @@ import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_activity/controller/like_handler.dart';
 import 'package:pawtai_mockup/features/homepage_activity/controller/update_list_item.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_dialog_box.dart';
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 
 class ActivityItem extends StatefulWidget {
   const ActivityItem(this.data, {super.key});

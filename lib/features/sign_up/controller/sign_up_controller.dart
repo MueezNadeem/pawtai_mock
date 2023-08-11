@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class SignUpController {
-  final url = 'http://192.168.100.51:5000/AddUser';
+  final url = 'http://192.168.100.100:5000/AddUser';
 
   void callAddUser(String username, String email, String password) {
     _addUserController(username, email, password).then((value) => null);

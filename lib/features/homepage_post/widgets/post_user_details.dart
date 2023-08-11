@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_dialog.dart';
 
 class PostUserDetails extends StatefulWidget {
-  const PostUserDetails({super.key});
-
+  const PostUserDetails(this.user, {super.key});
+  final User user;
   @override
   State<PostUserDetails> createState() => _PostUserDetailsState();
 }
@@ -40,11 +41,12 @@ class _PostUserDetailsState extends State<PostUserDetails> {
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 4),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 0, 4),
                 child: Text(
-                  "Mueez Nadeem",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  widget.user.email!,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 16),
                 ),
               ),
               Padding(
@@ -61,7 +63,7 @@ class _PostUserDetailsState extends State<PostUserDetails> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return const PostDialog();
+                            return PostDialog(widget.user);
                           },
                         );
                       },

@@ -9,7 +9,7 @@ import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_appbar
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_group_item.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_photo_item.dart';
 import 'package:pawtai_mockup/features/homepage_activity/widgets/activity_list_video_item.dart';
-import '../../../models/activity.dart';
+import '../../../common/models/activity.dart';
 import '../widgets/activity_list_item.dart';
 
 class ActivityScreen extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class UsernamesWhoLikedRetriever {
-  final url = 'http://192.168.100.51:5000/GetLikedUsers';
+  final url = 'http://192.168.100.100:5000/GetLikedUsers';
 
   List<String> callGetUsersWhoLiked(String activityid) {
     List<String> userList = List.empty();

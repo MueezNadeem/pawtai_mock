@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
-import 'package:pawtai_mockup/models/activity.dart';
+import 'package:pawtai_mockup/common/models/activity.dart';
 
 class ReplyHandler {
-  final url = 'http://192.168.100.51:5000/AddReply';
+  final url = 'http://192.168.100.100:5000/AddReply';
 
   void callReplyPost(String content, Activity activity, User user) {
     _addReplyController(content, activity, user).then((value) => null);
