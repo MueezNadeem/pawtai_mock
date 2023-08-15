@@ -8,7 +8,7 @@ class UserPawtaiRetriever {
   List<Pawtai> callGetPawtai(String userEmail) {
     List<Pawtai> temp = List.empty();
     getPawtai(userEmail).then((value) {
-      temp = value;
+      return value;
     });
     return temp;
   }

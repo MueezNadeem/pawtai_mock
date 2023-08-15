@@ -5,6 +5,8 @@ import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_button.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_user_details.dart';
 
+import '../../../common/helpers/get_user_pawtai.dart';
+import '../../../common/models/pawtai.dart';
 import '../widgets/post_textbox.dart';
 
 class PostScreen extends StatefulWidget {
@@ -17,16 +19,15 @@ class PostScreen extends StatefulWidget {
 class _PostScreenState extends State<PostScreen> {
   late TextEditingController postController;
   late User _user;
-
   @override
   void initState() {
-    super.initState();
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       setState(() {
         _user = user!;
       });
     });
     postController = TextEditingController();
+    super.initState();
   }
 
   @override

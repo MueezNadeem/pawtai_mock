@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/common/models/pawtai.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_dialog.dart';
+
+import '../../../common/helpers/get_user_pawtai.dart';
 
 class PostUserDetails extends StatefulWidget {
   const PostUserDetails(this.user, {super.key});
@@ -12,8 +15,11 @@ class PostUserDetails extends StatefulWidget {
 
 class _PostUserDetailsState extends State<PostUserDetails> {
   List<String> list = ['Fido', 'Ludo', 'Kido'];
+  late List<Pawtai> pawtaiList;
   @override
   void initState() {
+    pawtaiList = UserPawtaiRetriever().callGetPawtai(widget.user.email!);
+
     super.initState();
   }
 
@@ -67,22 +73,52 @@ class _PostUserDetailsState extends State<PostUserDetails> {
                           },
                         );
                       },
-                      child: const Row(
-                        children: [
-                          Icon(
-                            Icons.pets,
-                            size: 12,
+                      child: FutureBuilder(
+                          future: UserPawtaiRetriever()
+                              .getPawtai(widget.user.email!),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Row(
+                                children: [
+                                  const Icon(
+                                    Icons.pets,
+                                    size: 12,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8.0, right: 8),
+                                    child: Text(snapshot.data!.first.name),
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_downward,
+                                    size: 12,
+                                  )
+                                ],
+                              );
+                            } else {
+                              return const CircularProgressIndicator(
+                                strokeWidth: 0.5,
+                              );
+                            }
+                          }
+                          //  Row(
+                          //   children: [
+                          //     const Icon(
+                          //       Icons.pets,
+                          //       size: 12,
+                          //     ),
+                          //     Padding(
+                          //       padding:
+                          //           const EdgeInsets.only(left: 8.0, right: 8),
+                          //       child: Text(pawtaiList.first.name),
+                          //     ),
+                          //     const Icon(
+                          //       Icons.arrow_downward,
+                          //       size: 12,
+                          //     )
+                          //   ],
+                          // ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0, right: 8),
-                            child: Text("Fido"),
-                          ),
-                          Icon(
-                            Icons.arrow_downward,
-                            size: 12,
-                          )
-                        ],
-                      ),
                     ),
                   ),
                 ),

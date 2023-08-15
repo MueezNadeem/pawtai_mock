@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Pawtai {
   late String pawtaiID;
   late String name;
