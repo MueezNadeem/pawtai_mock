@@ -2,8 +2,8 @@ class Pawtai {
   late String pawtaiID;
   late String name;
   late String petType;
-  late double petWeight;
-  late double petLength;
+  late String petWeight;
+  late String petLength;
   late String petBreed;
   late String userID;
   late String profilepicURL;
@@ -24,9 +24,9 @@ class Pawtai {
       name: json['pawtaiName'],
       pawtaiID: json['pawtai_id'].toString(),
       petBreed: json['petBreed'].toString(),
-      petLength: 0.0,
+      petLength: json['petLength'].toString(),
       petType: json['petType'].toString(),
-      petWeight: 0.0,
+      petWeight: json['petWeight'].toString(),
       profilepicURL: json['profPicUrl'].toString(),
       userID: json['userID'].toString(),
     );

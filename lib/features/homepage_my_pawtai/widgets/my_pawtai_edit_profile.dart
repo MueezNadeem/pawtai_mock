@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/common/models/pawtai.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/controller/edit_pawtai_handler.dart';
+import 'package:pawtai_mockup/features/homepage_my_pawtai/screens/my_pawtai_screen.dart';
 
 class MyPawtaiEditProfile extends StatefulWidget {
   const MyPawtaiEditProfile(this.data, {super.key});
@@ -150,7 +152,18 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                     elevation: const MaterialStatePropertyAll(6),
                     backgroundColor: MaterialStatePropertyAll(bgColor())),
                 onPressed: () {
-                  Navigator.pop(context);
+                  EditPawtai().updatePawtai(
+                      widget.data.pawtaiID,
+                      nameController.text,
+                      typeController.text,
+                      lengthController.text,
+                      weightController.text,
+                      breedController.text);
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const MyPawtaiScreen();
+                    },
+                  ));
                 },
                 child: const Text(
                   "Save",
