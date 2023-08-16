@@ -12,6 +12,31 @@ class AddEventScreen extends StatefulWidget {
 }
 
 class _AddEventScreenState extends State<AddEventScreen> {
+  late TextEditingController dateController;
+
+  late TextEditingController timeController;
+
+  late TextEditingController titleController;
+
+  late TextEditingController pawtaiController;
+
+  late bool _recurring;
+  late String _option;
+  late List<bool> values;
+
+  @override
+  void initState() {
+    super.initState();
+    dateController = TextEditingController();
+    timeController = TextEditingController();
+    titleController = TextEditingController();
+    pawtaiController = TextEditingController();
+
+    _option = "Weekly";
+    _recurring = true;
+    values = List.filled(7, false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +53,12 @@ class _AddEventScreenState extends State<AddEventScreen> {
               letterSpacing: 0.2),
         ),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(children: [
-          AddEventInput(),
-          AddEventButton(),
+          AddEventInput(dateController, titleController, timeController,
+              pawtaiController, _recurring, _option, values),
+          AddEventButton(dateController, titleController, timeController,
+              pawtaiController, _recurring, _option, values),
         ]),
       ),
     );

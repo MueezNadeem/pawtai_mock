@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class AddPostController {
-  final url = 'http://192.168.100.100:5000/AddPost';
+  final url = 'http://192.168.100.155:5000/AddPost';
 
   void callAddPost(String content, String user, String pawtai) {
     _addPostController(content, user, pawtai).then((value) => null);

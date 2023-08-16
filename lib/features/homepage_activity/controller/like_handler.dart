@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class LikeHandler {
-  final url = 'http://192.168.100.100:5000/HandleLikes';
+  final url = 'http://192.168.100.155:5000/HandleLikes';
 
   void callHandleLike(Activity a) {
     handleLike(a).then((value) {});

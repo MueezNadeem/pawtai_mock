@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:pawtai_mockup/common/models/reply.dart';
 
 class UsernamesWhoLikedRetriever {
-  final url = 'http://192.168.100.100:5000/GetReplies';
+  final url = 'http://192.168.100.155:5000/GetReplies';
 
   List<Reply> callGetUsersWhoReplied(String activityid) {
     List<Reply> replyList = List.empty();

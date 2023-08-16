@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AddPawtaiController {
-  final url = 'http://192.168.100.100:5000/AddPawtai';
+  final url = 'http://192.168.100.155:5000/AddPawtai';
 
   void callAddPawtai(String name, String user) {
     _addPawtaiController(name, user).then((value) => null);

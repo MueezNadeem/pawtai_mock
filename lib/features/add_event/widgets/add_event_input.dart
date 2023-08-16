@@ -4,8 +4,16 @@ import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 
 class AddEventInput extends StatefulWidget {
-  const AddEventInput({super.key});
-
+  const AddEventInput(this.dC, this.tC, this.tiC, this.pC, this.recurring,
+      this.option, this.values,
+      {super.key});
+  final TextEditingController dC;
+  final TextEditingController tC;
+  final TextEditingController tiC;
+  final TextEditingController pC;
+  final String option;
+  final bool recurring;
+  final List<bool> values;
   @override
   State<AddEventInput> createState() => _AddEventInputState();
 }
@@ -21,20 +29,22 @@ class _AddEventInputState extends State<AddEventInput> {
 
   late TextEditingController pawtaiController;
 
-  bool _recurring = true;
-  String _option = "Weekly";
-  final values = List.filled(7, true);
+  late bool _recurring;
+  late String _option;
+  late List<bool> values;
+
   @override
   void initState() {
     eventDate = DateTime.now();
     eventTime = TimeOfDay.fromDateTime(eventDate!);
-    dateController = TextEditingController();
-    timeController = TextEditingController();
-    titleController = TextEditingController();
-    pawtaiController = TextEditingController();
+    dateController = widget.dC;
+    timeController = widget.tC;
+    titleController = widget.tiC;
+    pawtaiController = widget.pC;
 
-    _option = "Weekly";
-    _recurring = true;
+    _option = widget.option;
+    _recurring = widget.recurring;
+    values = widget.values;
     super.initState();
   }
 
@@ -55,6 +65,7 @@ class _AddEventInputState extends State<AddEventInput> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                    controller: titleController,
                     decoration: InputDecoration(
                         hintText: "Enter title",
                         hintStyle:

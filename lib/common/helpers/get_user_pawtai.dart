@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:pawtai_mockup/common/models/pawtai.dart';
 
 class UserPawtaiRetriever {
-  final url = 'http://192.168.100.100:5000/GetUserPawtai';
+  final url = 'http://192.168.100.155:5000/GetUserPawtai';
 
   List<Pawtai> callGetPawtai(String userEmail) {
     List<Pawtai> temp = List.empty();

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/common/models/pawtai.dart';
 import 'package:pawtai_mockup/features/homepage_my_pawtai/widgets/my_pawtai_edit_profile.dart';
 
 class MyPawtaiProfile extends StatefulWidget {
-  const MyPawtaiProfile({super.key});
-
+  const MyPawtaiProfile(this.data, {super.key});
+  final Pawtai data;
   @override
   State<MyPawtaiProfile> createState() => _MyPawtaiProfileState();
 }
@@ -30,95 +31,95 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
                 )
               ],
             ),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Pawtai ID',
                   style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
                 Text(
-                  'PT12345',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  widget.data.pawtaiID,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ],
             ),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Name',
                   style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
                 Text(
-                  'Fido',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  widget.data.name,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Pet Type',
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                     Text(
-                      'Dog',
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      widget.data.petType,
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 120,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Pet Breed',
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                     Text(
-                      'German Shephard',
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      widget.data.petBreed,
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ],
                 ),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Pet Length',
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                     Text(
-                      '54 CM',
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      "${widget.data.petLength} CM",
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 120,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Pet Weight',
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                     Text(
-                      '7 KG',
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      "${widget.data.petWeight} KG",
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ],
                 ),
@@ -140,7 +141,7 @@ class _MyPawtaiProfileState extends State<MyPawtaiProfile> {
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const MyPawtaiEditProfile();
+                                return MyPawtaiEditProfile(widget.data);
                               },
                             ));
                           },

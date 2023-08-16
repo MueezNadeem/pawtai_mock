@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:pawtai_mockup/common/models/activity.dart';
 
 class ReplyHandler {
-  final url = 'http://192.168.100.100:5000/AddReply';
+  final url = 'http://192.168.100.155:5000/AddReply';
 
   void callReplyPost(String content, Activity activity, User user) {
     _addReplyController(content, activity, user).then((value) => null);

@@ -5,8 +5,6 @@ import 'package:pawtai_mockup/features/homepage_post/widgets/post_appbar.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_button.dart';
 import 'package:pawtai_mockup/features/homepage_post/widgets/post_user_details.dart';
 
-import '../../../common/helpers/get_user_pawtai.dart';
-import '../../../common/models/pawtai.dart';
 import '../widgets/post_textbox.dart';
 
 class PostScreen extends StatefulWidget {

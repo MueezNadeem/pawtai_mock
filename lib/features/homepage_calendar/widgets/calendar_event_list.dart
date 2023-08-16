@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pawtai_mockup/common/helpers/calendar_datasource.dart';
-import 'package:pawtai_mockup/common/helpers/calendar_events.dart';
+import 'package:pawtai_mockup/common/models/event.dart';
+import 'package:pawtai_mockup/features/homepage_calendar/controller/event_retriever.dart';
 
 class CalendarEvents extends StatefulWidget {
   const CalendarEvents({super.key});
@@ -11,11 +12,16 @@ class CalendarEvents extends StatefulWidget {
 }
 
 class _CalendarEventsState extends State<CalendarEvents> {
-  List<Meeting> meetings = [];
-
+  List<Event> meetings = [];
+  late User _user;
   @override
   void initState() {
-    meetings = getDataSource();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _user = user!;
+        meetings = EventRetriever().callGetEvents(_user.email!);
+      });
+    });
     super.initState();
   }
 
@@ -34,8 +40,9 @@ class _CalendarEventsState extends State<CalendarEvents> {
               child: Image.asset(
                   'assets/images/charles-deluvio-Mv9hjnEUHR4-unsplash@3x.png'),
             ),
-            title: Text(meetings[index].eventName),
-            subtitle: Text(DateFormat.yMMMEd().format(meetings[index].from)),
+            title: Text(meetings[index].subject),
+            subtitle:
+                Text(DateFormat.yMMMEd().format(meetings[index].startTime)),
           );
         },
       ),

@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
+import 'package:pawtai_mockup/common/models/pawtai.dart';
 
 class MyPawtaiEditProfile extends StatefulWidget {
-  const MyPawtaiEditProfile({super.key});
-
+  const MyPawtaiEditProfile(this.data, {super.key});
+  final Pawtai data;
   @override
   State<MyPawtaiEditProfile> createState() => _MyPawtaiEditProfileState();
 }
 
 class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
+  late TextEditingController nameController;
+  late TextEditingController typeController;
+  late TextEditingController lengthController;
+  late TextEditingController weightController;
+  late TextEditingController breedController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    typeController = TextEditingController();
+    breedController = TextEditingController();
+    lengthController = TextEditingController();
+    weightController = TextEditingController();
+
+    nameController.text = widget.data.name;
+    typeController.text = widget.data.petType;
+    breedController.text = widget.data.petBreed;
+    lengthController.text = widget.data.petLength.toString();
+
+    weightController.text = widget.data.petWeight.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +60,7 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                 ),
               ),
               TextField(
+                controller: nameController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25))),
@@ -53,6 +78,7 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                 ),
               ),
               TextField(
+                controller: typeController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25))),
@@ -70,6 +96,8 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                 ),
               ),
               TextField(
+                keyboardType: TextInputType.number,
+                controller: lengthController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25))),
@@ -87,6 +115,8 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                 ),
               ),
               TextField(
+                keyboardType: TextInputType.number,
+                controller: weightController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25))),
@@ -104,6 +134,7 @@ class _MyPawtaiEditProfileState extends State<MyPawtaiEditProfile> {
                 ),
               ),
               TextField(
+                controller: breedController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25))),

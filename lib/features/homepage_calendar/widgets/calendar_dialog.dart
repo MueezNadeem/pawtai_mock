@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pawtai_mockup/common/colors/bg_color.dart';
 import 'package:pawtai_mockup/common/helpers/calendar_datasource.dart';
-import 'package:pawtai_mockup/common/helpers/calendar_events.dart';
+import 'package:pawtai_mockup/common/models/event.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 // ignore: must_be_immutable
@@ -15,7 +15,7 @@ class CalendarDialog extends StatefulWidget {
 
 class _CalendarDialogState extends State<CalendarDialog> {
   late CalendarLongPressDetails _calendarTapDetails;
-  List<Meeting> meetings = List.empty();
+  List<Event> meetings = List.empty();
   @override
   void initState() {
     meetings = getDataSource();
@@ -53,9 +53,9 @@ class _CalendarDialogState extends State<CalendarDialog> {
                         decoration: const BoxDecoration(shape: BoxShape.circle),
                         child: Image.asset(
                             'assets/images/kabo-BHJs5TZ-Nt0-unsplash-2.png')),
-                    title: Text(meetings[index].eventName),
-                    subtitle:
-                        Text(DateFormat.yMMMEd().format(meetings[index].from)),
+                    title: Text(meetings[index].subject),
+                    subtitle: Text(
+                        DateFormat.yMMMEd().format(meetings[index].startTime)),
                   );
                 },
               ),

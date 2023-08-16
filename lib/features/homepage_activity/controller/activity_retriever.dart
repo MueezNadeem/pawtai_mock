@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:pawtai_mockup/common/models/activity.dart';
 
 class ActivityRetriever {
-  final url = 'http://192.168.100.100:5000/GetPosts';
+  final url = 'http://192.168.100.155:5000/GetPosts';
 
   List<Activity> callGetActivities(String user) {
     List<Activity> temp = List.empty();

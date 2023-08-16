@@ -1,12 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:pawtai_mockup/common/helpers/calendar_events.dart';
+import 'package:pawtai_mockup/common/models/event.dart';
 
-List<Meeting> getDataSource() {
-  final List<Meeting> meetings = <Meeting>[];
+List<Event> getDataSource() {
+  final List<Event> meetings = <Event>[];
   final DateTime today = DateTime.now();
   final DateTime startTime = DateTime(today.year, today.month, today.day);
-  final DateTime endTime = startTime.add(const Duration(hours: 2));
-  meetings.add(Meeting(
-      'Conference', startTime, endTime, const Color(0xFF0F8644), false));
+  final DateTime endTime = startTime.add(const Duration(days: 20));
+  meetings.add(Event(
+      endTime: endTime,
+      startTime: startTime,
+      recurrenceRule: 'FREQ=DAILY;',
+      subject: 'Conference'));
   return meetings;
 }

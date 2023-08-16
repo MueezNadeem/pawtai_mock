@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pawtai_mockup/common/models/event.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MeetingDataSource extends CalendarDataSource {
-  MeetingDataSource(List<Meeting> source) {
+  MeetingDataSource(List<Event> source) {
     appointments = source;
   }
 
@@ -30,14 +31,4 @@ class MeetingDataSource extends CalendarDataSource {
   bool isAllDay(int index) {
     return appointments![index].isAllDay;
   }
-}
-
-class Meeting {
-  Meeting(this.eventName, this.from, this.to, this.background, this.isAllDay);
-
-  String eventName;
-  DateTime from;
-  DateTime to;
-  Color background;
-  bool isAllDay;
 }
